@@ -1,1 +1,1 @@
-Defines a protobuf spec for the Ethereal exchange api.
+Public protobuf spec for the decentralised exchanges.
