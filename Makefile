@@ -11,6 +11,7 @@ buf:
 	buf build
 
 all: buf
+	buf dep update
 	buf push
 
 version:
