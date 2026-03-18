@@ -1,8 +1,10 @@
 # For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
 version: v2
 modules:
-  - path: proto
+  - path: dex
     name: buf.build/round-internet-money/dex
+  - path: web3
+    name: buf.build/round-internet-money/web3    
 deps:
   - buf.build/protocolbuffers/wellknowntypes
 lint:
