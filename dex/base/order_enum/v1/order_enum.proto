@@ -1,8 +1,9 @@
 syntax = "proto3";
 
-option go_package = "github.com/roundinternetmoney/proto-dex;pb";
+option go_package = "roundinternet.money/proto-dex/gen/dex/base/order_enum/v1;pb";
 
-package ethereal.v1;
+package dex.base.order_enum.v1;
+
 enum Side {
     SIDE_UNSPECIFIED = 0;
     SIDE_BUY = 1; // offer with bids

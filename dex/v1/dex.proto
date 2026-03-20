@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "github.com/roundinternetmoney/pb-dex/dex/v1;pb";
+
+package dex.v1;
+
+import "dex/aster/v1/aster.proto";
+import "dex/ethereal/v1/rest.proto";
+
+message Asset {
+  oneof asset {
+    dex.aster.v1.AssetSnapshot aster = 1;
+    dex.ethereal.v1.AssetSnapshot ethereal = 2; 
+  }
+}

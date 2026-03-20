@@ -1,16 +1,16 @@
 syntax = "proto3";
 
-option go_package = "github.com/roundinternetmoney/proto-dex;pb";
+option go_package = "roundinternet.money/proto-dex/gen/dex/ethereal/v1;pb";
 
-package ethereal.v1;
+package dex.ethereal.v1;
 
-import "ethereal/v1/order.proto";
+import "dex/base/order_enum/v1/order_enum.proto";
 
 message Asset {
     string id = 1;
     string ticker = 2;
     string display_ticker = 3;
-    OrderEngine engine_type = 4;
+    dex.base.order_enum.v1.OrderEngine engine_type = 4;
     int64  onchain_id = 5;
     string lot_size = 6;
     string tick_size = 7;

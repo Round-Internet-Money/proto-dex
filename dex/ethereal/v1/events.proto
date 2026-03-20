@@ -1,10 +1,12 @@
 syntax = "proto3";
 
-option go_package = "github.com/roundinternetmoney/proto-dex;pb";
+option go_package = "roundinternet.money/proto-dex/gen/dex/ethereal/v1;pb";
 
-package ethereal.v1;
+package dex.ethereal.v1;
 
-import "ethereal/v1/order.proto";
+import "dex/base/status/v1/status.proto";
+import "dex/base/order_enum/v1/order_enum.proto";
+
 import "google/protobuf/struct.proto";
 
 
@@ -13,8 +15,7 @@ message EventMessage { // TODO: see if unverified_lazy tag applies
 }
 
 message WebsocketStatus {
-    bool ok = 1;
-    string code = 2;
+    dex.base.status.v1.Status status = 1;
 }
 
 enum EventType {
@@ -71,7 +72,7 @@ message TradeFill {
             string id = 1;
             string px = 2;
             string sz = 3;
-            Side sd = 4;
+            dex.base.order_enum.v1.Side sd = 4;
             repeated string sids = 5; // [taker maker]
         }    
         repeated Fill fills = 3;
@@ -104,7 +105,7 @@ message PositionUpdate {
             string id = 1;
             string sid = 2;
             string s = 3;
-            Side side = 4;
+            dex.base.order_enum.v1.Side side = 4;
             string sz = 5;
             string cost = 6;
             string rpnl = 8;
@@ -125,12 +126,12 @@ message OrderUpdate {
         message Update {
             string id = 1;
             string cloid = 2;
-            OrderType otyp = 3;
+            dex.base.order_enum.v1.OrderType otyp = 3;
             string qty = 4;
             string aqty = 5;
             string fill = 6;
             optional string px = 7;
-            Side side = 8;
+            dex.base.order_enum.v1.Side side = 8;
             string s = 9;
             string sid = 10;
             string sn = 11;
@@ -165,7 +166,7 @@ message OrderFill {
             string price = 4;
             string filled = 5;
             string type = 6;
-            Side side = 7;
+            dex.base.order_enum.v1.Side side = 7;
             bool reduce_only = 8;
             string fee_usd = 9;
             bool is_maker = 10;

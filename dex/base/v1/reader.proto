@@ -1,0 +1,177 @@
+syntax = "proto3";
+
+option go_package = "roundinternet.money/proto-dex/gen/dex/base/v1;pb";
+
+package dex.base.v1;
+
+import "dex/base/v1/base.proto";
+import "dex/base/status/v1/status.proto";
+import "natsmicro/options.proto";
+
+// provide real-time updates from DEXes
+service ReaderService {
+  option (natsmicro.service) = {
+    subject_prefix : "reader"
+    name : "dex_reader_service"
+    version : "0.0.1"
+  };
+
+  // stream asset updates to consumers
+  rpc DexAsset(DexAssetRequest) returns (DexAssetResponse) {
+    option (natsmicro.endpoint) = {
+      metadata: {
+        key: "operation"
+        value: "read"
+      }
+      timeout : {seconds : 3}
+    };
+  };
+
+//   // stream asset updates to consumers
+//   rpc Asset(AssetRequest) returns (AssetResponse) {}
+//   // stream margin updates to consumers
+//   rpc Margin(MarginRequest) returns (MarginResponse) {}
+//   // stream position updates to consumers
+//   rpc Position(PositionRequest) returns (PositionResponse) {}
+//   // stream diff updates to consumers
+//   rpc Diff(DiffRequest) returns (DiffResponse) {}
+//   // stream mids updates to consumers
+//   rpc Mids(MidsRequest) returns (MidsResponse) {}
+
+  // long-lived streams
+  // stream asset updates to consumers
+  rpc StreamAsset(StreamAssetRequest) returns (stream StreamAssetResponse) {}
+  // stream margin updates to consumers -- long lived
+  rpc StreamMargin(StreamMarginRequest) returns (stream StreamMarginResponse) {}
+  // stream position updates to consumers -- long lived
+  rpc StreamPosition(StreamPositionRequest) returns (stream StreamPositionResponse) {}
+  // stream diff updates to consumers -- long lived
+  rpc StreamDiff(StreamDiffRequest) returns (stream StreamDiffResponse) {}
+  // stream mids updates to consumers -- long lived
+  rpc StreamMids(StreamMidsRequest) returns (stream StreamMidsResponse) {}
+
+  // stream updates to consumers
+  rpc Stream(StreamRequest) returns (stream StreamResponse) {};
+
+  // allow internal producers to stream messages, ideally consumed as a batch.
+  rpc Upstream(stream UpstreamRequest) returns (UpstreamResponse) {};
+
+  // allow internal producers to stream messages, while depending reader streams.
+  // useful if multiple binaries are required to submit all payload kinds, but one reader stream is desired. 
+  rpc Downstream(stream DownstreamRequest) returns (stream DownstreamResponse) {};
+}
+
+enum PayloadKind {
+  PAYLOAD_KIND_UNSPECIFIED = 0;
+  PAYLOAD_KIND_BOOK_DIFF = 1;
+  PAYLOAD_KIND_POSITION = 2;
+  PAYLOAD_KIND_MARGIN = 3;
+  PAYLOAD_KIND_ASSET = 4;
+  PAYLOAD_KIND_MIDS = 5;
+}
+
+
+message StreamRequest {
+  repeated Dex dexes = 1;
+  repeated PayloadKind kinds = 2;
+  repeated string symbols = 3;
+  repeated string account_ids = 4;
+}
+message StreamResponse {
+  PayloadKind kind = 1;
+  oneof payload {
+    Asset a = 2;
+    Margin m = 3;
+    Position p = 4;
+    BookDiffStream d = 5;
+    Mid md = 6;
+  }
+}
+
+message UpstreamRequest {
+    Dex dex = 1;
+    PayloadKind kind = 2;
+    oneof payload {
+        Asset a = 3;
+        Margin m = 4;
+        Position p = 5;
+        BookDiffStream d = 6;
+        Mid md = 7;
+    }
+}
+
+message UpstreamResponse {
+    dex.base.status.v1.Status status = 1;
+}
+
+message DownstreamRequest {
+    Dex dex = 1;
+    PayloadKind kind = 2;
+    oneof payload {
+        Asset a = 3;
+        Margin m = 4;
+        Position p = 5;
+        BookDiffStream d = 6;
+        Mid md = 7;
+    }
+}
+
+message DownstreamResponse {
+  PayloadKind kind = 1;
+  oneof payload {
+    Asset a = 2;
+    Margin m = 3;
+    Position p = 4;
+    BookDiffStream d = 5;
+    Mid md = 6;
+  }
+}
+
+message DexAssetRequest {
+  repeated Dex dexes = 1;
+  repeated string related_assets = 2;
+  bool snapshot = 3;
+}
+
+message DexAssetResponse {
+    repeated Asset a = 1;
+}
+
+message StreamAssetRequest {
+  repeated Dex dexes = 1;
+  repeated string related_assets = 2;
+}
+message StreamAssetResponse {
+  Asset a = 1;
+}
+message StreamMarginRequest {
+  repeated Dex dexes = 1;
+  repeated string related_subaccounts = 2;
+}
+message StreamMarginResponse {
+  Margin m = 1;
+}
+
+message StreamPositionRequest {
+  repeated Dex dexes = 1;
+  repeated string related_assets = 2;
+}
+message StreamPositionResponse {
+  Position p = 1;
+}
+
+message StreamDiffRequest {
+  repeated Dex dexes = 1;
+  repeated string related_assets = 2;
+}
+message StreamDiffResponse {
+  BookDiffStream d = 1;
+}
+
+message StreamMidsRequest {
+  repeated Dex dexes = 1;
+  repeated string related_subaccounts = 2;
+}
+message StreamMidsResponse {
+  Mid md = 1;
+}

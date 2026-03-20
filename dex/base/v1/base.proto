@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option go_package = "roundinternet.money/proto-dex/gen/dex/base/v1;pb";
+
+package dex.base.v1;
+
+enum Dex {
+  DEX_UNSPECIFIED = 0;
+  DEX_ASTER = 1;
+  DEX_ETHEREAL = 2;
+  DEX_HYPERLIQUID = 3;
+  DEX_BINANCE = 4;
+  DEX_BYBIT = 5;
+  DEX_HTX = 6;
+}
+
+message Asset {
+  string ticker = 1;
+  string id = 2;
+  double min_quantity = 12;
+  double max_quantity = 13;
+  double lot_size = 14;
+  double tick_size = 15;
+}
+
+message Margin {
+  string id = 1;
+  string asset = 2;
+  double margin_balance = 3;
+  double available_balance = 4;
+  optional double frozen = 5;
+}
+
+message Position {
+  string symbol = 1;
+  double size = 2;
+  optional double entry_price = 3;
+  optional double mark_price = 4;
+  optional double margin = 5;
+}
+
+message BookLevel {
+  string price = 1;
+  string size = 2;
+}
+
+message Mid {
+  string asset = 1; 
+  double px = 2;
+}
+
+message BookDiffStream {
+  string asset = 1;
+  int64 timestamp = 2;
+  int64 previous_timestamp = 3;
+
+  repeated BookLevel asks = 4;
+  repeated BookLevel bids = 5;
+}

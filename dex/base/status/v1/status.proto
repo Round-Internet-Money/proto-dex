@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option go_package = "roundinternet.money/proto-dex/gen/dex/base/status/v1;pb";
+
+package dex.base.status.v1;
+
+message Status {
+    bool ok = 1;
+    string code = 2;
+}
