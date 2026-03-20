@@ -80,8 +80,8 @@ const file_dex_base_status_v1_status_proto_rawDesc = "" +
 	"\x1fdex/base/status/v1/status.proto\x12\x12dex.base.status.v1\",\n" +
 	"\x06Status\x12\x0e\n" +
 	"\x02ok\x18\x01 \x01(\bR\x02ok\x12\x12\n" +
-	"\x04code\x18\x02 \x01(\tR\x04codeB\xc9\x01\n" +
-	"\x16com.dex.base.status.v1B\vStatusProtoP\x01Z7roundinternet.money/proto-dex/gen/dex/base/status/v1;pb\xa2\x02\x03DBS\xaa\x02\x12Dex.Base.Status.V1\xca\x02\x12Dex\\Base\\Status\\V1\xe2\x02\x1eDex\\Base\\Status\\V1\\GPBMetadata\xea\x02\x15Dex::Base::Status::V1b\x06proto3"
+	"\x04code\x18\x02 \x01(\tR\x04codeB\xc6\x01\n" +
+	"\x16com.dex.base.status.v1B\vStatusProtoP\x01Z4roundinternet.money/protos/gen/dex/base/status/v1;pb\xa2\x02\x03DBS\xaa\x02\x12Dex.Base.Status.V1\xca\x02\x12Dex\\Base\\Status\\V1\xe2\x02\x1eDex\\Base\\Status\\V1\\GPBMetadata\xea\x02\x15Dex::Base::Status::V1b\x06proto3"
 
 var (
 	file_dex_base_status_v1_status_proto_rawDescOnce sync.Once

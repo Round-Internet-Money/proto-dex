@@ -11,8 +11,8 @@ import (
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	structpb "google.golang.org/protobuf/types/known/structpb"
 	reflect "reflect"
-	v11 "roundinternet.money/proto-dex/gen/dex/base/order_enum/v1"
-	v1 "roundinternet.money/proto-dex/gen/dex/base/status/v1"
+	v11 "roundinternet.money/protos/gen/dex/base/order_enum/v1"
+	v1 "roundinternet.money/protos/gen/dex/base/status/v1"
 	sync "sync"
 	unsafe "unsafe"
 )
@@ -2099,8 +2099,8 @@ const file_dex_ethereal_v1_events_proto_rawDesc = "" +
 	"\x1aEVENT_TYPE_POSITION_UPDATE\x10\x05\x12\x1b\n" +
 	"\x17EVENT_TYPE_ORDER_UPDATE\x10\x06\x12\x19\n" +
 	"\x15EVENT_TYPE_ORDER_FILL\x10\a\x12\x1d\n" +
-	"\x19EVENT_TYPE_TOKEN_TRANSFER\x10\bB\xb6\x01\n" +
-	"\x13com.dex.ethereal.v1B\vEventsProtoP\x01Z4roundinternet.money/proto-dex/gen/dex/ethereal/v1;pb\xa2\x02\x03DEX\xaa\x02\x0fDex.Ethereal.V1\xca\x02\x0fDex\\Ethereal\\V1\xe2\x02\x1bDex\\Ethereal\\V1\\GPBMetadata\xea\x02\x11Dex::Ethereal::V1b\x06proto3"
+	"\x19EVENT_TYPE_TOKEN_TRANSFER\x10\bB\xb3\x01\n" +
+	"\x13com.dex.ethereal.v1B\vEventsProtoP\x01Z1roundinternet.money/protos/gen/dex/ethereal/v1;pb\xa2\x02\x03DEX\xaa\x02\x0fDex.Ethereal.V1\xca\x02\x0fDex\\Ethereal\\V1\xe2\x02\x1bDex\\Ethereal\\V1\\GPBMetadata\xea\x02\x11Dex::Ethereal::V1b\x06proto3"
 
 var (
 	file_dex_ethereal_v1_events_proto_rawDescOnce sync.Once

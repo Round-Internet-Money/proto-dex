@@ -10,8 +10,8 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
-	v1 "roundinternet.money/proto-dex/gen/dex/aster/v1"
-	v11 "roundinternet.money/proto-dex/gen/dex/ethereal/v1"
+	v1 "roundinternet.money/protos/gen/dex/aster/v1"
+	v11 "roundinternet.money/protos/gen/dex/ethereal/v1"
 	sync "sync"
 	unsafe "unsafe"
 )
@@ -113,9 +113,9 @@ const file_dex_v1_dex_proto_rawDesc = "" +
 	"\x05Asset\x123\n" +
 	"\x05aster\x18\x01 \x01(\v2\x1b.dex.aster.v1.AssetSnapshotH\x00R\x05aster\x12<\n" +
 	"\bethereal\x18\x02 \x01(\v2\x1e.dex.ethereal.v1.AssetSnapshotH\x00R\betherealB\a\n" +
-	"\x05assetB\x7f\n" +
+	"\x05assetBy\n" +
 	"\n" +
-	"com.dex.v1B\bDexProtoP\x01Z.github.com/roundinternetmoney/pb-dex/dex/v1;pb\xa2\x02\x03DXX\xaa\x02\x06Dex.V1\xca\x02\x06Dex\\V1\xe2\x02\x12Dex\\V1\\GPBMetadata\xea\x02\aDex::V1b\x06proto3"
+	"com.dex.v1B\bDexProtoP\x01Z(roundinternet.money/protos/gen/dex/v1;pb\xa2\x02\x03DXX\xaa\x02\x06Dex.V1\xca\x02\x06Dex\\V1\xe2\x02\x12Dex\\V1\\GPBMetadata\xea\x02\aDex::V1b\x06proto3"
 
 var (
 	file_dex_v1_dex_proto_rawDescOnce sync.Once

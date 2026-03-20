@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	basev1 "roundinternet.money/proto-dex/gen/dex/base/v1"
+	basev1 "roundinternet.money/protos/gen/dex/base/v1"
 )
 
 func main() {

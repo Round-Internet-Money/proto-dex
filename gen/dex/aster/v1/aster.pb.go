@@ -754,9 +754,9 @@ const file_dex_aster_v1_aster_proto_rawDesc = "" +
 	"\rposition_side\x18\v \x01(\tR\fpositionSide\x12!\n" +
 	"\fposition_amt\x18\f \x01(\tR\vpositionAmt\x12\x1f\n" +
 	"\vupdate_time\x18\r \x01(\x03R\n" +
-	"updateTimeB\xa3\x01\n" +
+	"updateTimeB\xa0\x01\n" +
 	"\x10com.dex.aster.v1B\n" +
-	"AsterProtoP\x01Z1roundinternet.money/proto-dex/gen/dex/aster/v1;pb\xa2\x02\x03DAX\xaa\x02\fDex.Aster.V1\xca\x02\fDex\\Aster\\V1\xe2\x02\x18Dex\\Aster\\V1\\GPBMetadata\xea\x02\x0eDex::Aster::V1b\x06proto3"
+	"AsterProtoP\x01Z.roundinternet.money/protos/gen/dex/aster/v1;pb\xa2\x02\x03DAX\xaa\x02\fDex.Aster.V1\xca\x02\fDex\\Aster\\V1\xe2\x02\x18Dex\\Aster\\V1\\GPBMetadata\xea\x02\x0eDex::Aster::V1b\x06proto3"
 
 var (
 	file_dex_aster_v1_aster_proto_rawDescOnce sync.Once
